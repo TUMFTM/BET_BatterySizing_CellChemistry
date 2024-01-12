@@ -20,7 +20,7 @@ def energy_consumption_driving(par, gvw):
     sim = Simulation(drivingcycle)  # LDS
     lds_result = [sim.run(par, gvw)]  # Simulation with given payload
     v_avg = lds_result[0][1]  # km/h
-    con_per_km = lds_result[0][0] + (par.p_aux/1000) # kW/v_avg  # kW/km LDS-Results for Vecto Cylce @given Payload
+    con_per_km = lds_result[0][0] + (par.p_aux/1000)/v_avg # kW/v_avg  # kW/km LDS-Results for Vecto Cylce @given Payload
     p_dem = lds_result[0][5]
     t = lds_result[0][3]
     return con_per_km, v_avg, p_dem, t
